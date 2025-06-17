@@ -5,6 +5,12 @@ from flask_sqlalchemy import SQLAlchemy
 db = SQLAlchemy()
 migrate = Migrate()
 
+
+@app.route("/")
+def home():
+    return { "message": "Pizza API running!" }
+
+
 def create_app():
     app = Flask(__name__)
     app.config.from_object("server.config.Config")
